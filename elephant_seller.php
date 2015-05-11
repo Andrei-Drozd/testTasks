@@ -1,11 +1,11 @@
 #!/usr/bin/php5
 <?php
 $userName = ($argc != 2) ? 'Anonymous': $argv[1];
-printf('buy an elephant!', $userName);
+printf($userName . ', buy an elephant!%1$s', "\n");
 $userMessage = trim(fgets(STDIN));
-$answer = 'everyone say' .$userMessage.  'but you ought to buy an elephant!!!';
-$message = sprintf($answer, $userName, '%1$s');
+$answer = $userName . ', everyone say "' . $userMessage .  '" but you ought to buy an elephant!!!';
 while (strcasecmp($userMessage, 'exit') !== 0){
-    printf($message, $userMessage);
+    print $answer . "\n";
     $userMessage = trim(fgets(STDIN));
+    $answer = $userName . ', everyone say "' . $userMessage .  '" but you ought to buy an elephant!!!';
 }
